@@ -30,7 +30,7 @@ const generateResponse = async (prompt: string): Promise<string> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "x-ai/grok-4.1-fast",
+      model: "tngtech/deepseek-r1t2-chimera:free",
       messages: [{ role: "user", content: formattedPrompt }],
     }),
   });
