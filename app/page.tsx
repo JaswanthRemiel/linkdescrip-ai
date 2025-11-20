@@ -124,7 +124,6 @@ export default function OpenRouterChat() {
           )}
           {response && (
             <Alert>
-              <AlertTitle>Generated Response</AlertTitle>
               <AlertDescription>{response}</AlertDescription>
             </Alert>
           )}
