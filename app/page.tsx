@@ -30,7 +30,7 @@ const generateResponse = async (prompt: string): Promise<string> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+      model: "x-ai/grok-4.1-fast",
       messages: [{ role: "user", content: formattedPrompt }],
     }),
   });
