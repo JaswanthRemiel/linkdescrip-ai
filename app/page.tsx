@@ -42,7 +42,7 @@ Return only the headline.`;
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "tngtech/deepseek-r1t2-chimera:free",
+      model: "meta-llama/llama-3.3-70b-instruct:free",
       messages: [{ role: "user", content: formattedPrompt }],
     }),
   });
