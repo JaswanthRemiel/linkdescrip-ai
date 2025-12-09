@@ -21,7 +21,19 @@ const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const API_TOKEN = process.env.NEXT_PUBLIC_OPENROUTER_API;
 
 const generateResponse = async (prompt: string): Promise<string> => {
-  const formattedPrompt = `Generate a professional LinkedIn headline in 6-7 words based on the following input: "${prompt}" and just only give the headline no other extra stuffs, if more options of headline are there give them one by one`;
+  const formattedPrompt = `Using the details provided: ${prompt}, generate a concise, professional LinkedIn headline.
+Rules:
+
+Do not repeat any words.
+
+Keep it clear, modern, and impactful.
+
+Highlight the user’s strongest skills or roles.
+
+Limit to one line.
+
+No emojis.
+Return only the headline.`;
 
   const response = await fetch(API_URL, {
     method: "POST",
@@ -30,7 +42,7 @@ const generateResponse = async (prompt: string): Promise<string> => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+      model: "x-ai/grok-beta",
       messages: [{ role: "user", content: formattedPrompt }],
     }),
   });
@@ -112,7 +124,6 @@ export default function OpenRouterChat() {
           )}
           {response && (
             <Alert>
-              <AlertTitle>Generated Response</AlertTitle>
               <AlertDescription>{response}</AlertDescription>
             </Alert>
           )}
