@@ -42,7 +42,7 @@ Return only the headline.`;
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "x-ai/grok-4.1-fast",
+      model: "x-ai/grok-beta",
       messages: [{ role: "user", content: formattedPrompt }],
     }),
   });
